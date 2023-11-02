@@ -2,16 +2,16 @@ import { Component } from 'react';
 
 import './App.css';
 
-class HCounter extends Component {
+class Counter extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         handlerCounter: props.counter
+         handlerCounter: this.props.counter
       }
    }
 
    increase = () => {
-      if (this.state.handlerCounter < 10) {
+      if (this.state.handlerCounter < 20) {
          this.setState(state => ({
             handlerCounter: state.handlerCounter + 1
          }))
@@ -19,7 +19,7 @@ class HCounter extends Component {
    }
 
    decrease = () => {
-      if (this.state.handlerCounter > -10) {
+      if (this.state.handlerCounter > -20) {
          this.setState(state => ({
             handlerCounter: state.handlerCounter - 1
          }))
@@ -28,7 +28,7 @@ class HCounter extends Component {
 
    rand = () => {
       this.setState({
-         handlerCounter: Math.floor(-50 + Math.random() * (50 + 1 - (-50)))
+         handlerCounter: Math.floor(-20 + Math.random() * (20 + 1 - (-20)))
       });
    }
 
@@ -56,7 +56,7 @@ class HCounter extends Component {
 function App() {
    return (
       <div className='app'>
-         <HCounter counter={0} />
+         <Counter counter={0} />
       </div>
    )
 }
